@@ -1,0 +1,3 @@
+class Subcategoria < Categoria
+  
+end

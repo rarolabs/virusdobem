@@ -1,0 +1,10 @@
+<%= menu_helper(Dashboard, 'home', 'index', root_path, 'Dashboard', 'fa fa-th-large', true) %>
+<%= menu_parent([Categoria,Subcategoria,TipoInstituicao,Instituicao], lista_menus_cadastros, "Cadastros", 'fa fa-book', true) do %>
+	<%= menu_crud_helper(CategoriaCrud.title, Categoria) %>
+	<%= menu_crud_helper(SubcategoriaCrud.title, Subcategoria) %>
+	<%= menu_crud_helper(TipoInstituicaoCrud.title, TipoInstituicao) %>
+	<%= menu_crud_helper(InstituicaoCrud.title, Instituicao) %>
+	<%= menu_crud_helper(DispositivoCrud.title, Dispositivo) %>
+<% end %>
+<%= menu_helper_html(Instituicao, 'instituicoes', 'index', instituicoes_path, 'Instituições', 'fa fa-globe', true) %>
+<%= menu_crud_helper(NotificacaoCrud.title, Notificacao, 'fa fa-warning', true) %>
