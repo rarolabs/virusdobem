@@ -2,9 +2,9 @@ class Templus
   @@nome_aplicacao = "Instituto Vírus do Bem"
   @@nome_empresa = "Instituto Vírus do Bem"
   @@logo = 'virusdobem.png'
-  @@logo_menor = 'virusdobem.png'
+  @@logo_menor = 'virusdobem_menor.png'
   @@logo_rodape = 'raro_azul.png'
-  @@logo_landpage = 'virusdobem.png'
+  @@logo_landpage = 'virusdobem_landpage.png'
   @@favicon = 'favicon.ico'
   @@paragrafo_login = "O Vírus do Bem é altamente contagioso. Basta fazer uma ação solidária, uma única vez, que não terá mais cura. A adrenalina e o bem-estar que é “fazer o bem sem olhar a quem”,
 vai mudar sua vida!"

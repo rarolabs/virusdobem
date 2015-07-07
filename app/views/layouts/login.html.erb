@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%=Templus.nome_aplicacao%> | <%=Templus.nome_empresa%> </title>
+  <%= favicon_link_tag Templus.favicon %>
 	<!-- Include style per-controller - vendor plugins -->
 	<%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css.scss") %>
 	<!-- Main css styles -->
