@@ -5,4 +5,5 @@ development:
   database: virusdobem_development
   username: root
   password:
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
+#  socket: /tmp/mysql.sock

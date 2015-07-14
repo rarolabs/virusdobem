@@ -26,4 +26,9 @@ class Instituicao < ActiveRecord::Base
   def to_s
     nome
   end
+
+  def tipoInstituicao
+  	self.tipo_instituicao.descricao
+  end
+
 end

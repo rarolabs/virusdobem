@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 20150711175841) do
 
   create_table "dispositivos", force: :cascade do |t|
     t.string   "gcm",          limit: 255
-    t.integer  "numero_busca", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "numero_busca", limit: 4,   default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   create_table "enderecos", force: :cascade do |t|
