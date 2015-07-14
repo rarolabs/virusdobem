@@ -5,6 +5,8 @@ class NotificacaoCrud < RaroCrud
   
   ordenar_por :created_at
   itens_por_pagina 20
+  acoes :enviar!, "Enviar", Proc.new {|obj| !obj.enviada?}
+  
   sem_visualizacao
   sem_exclusao
   

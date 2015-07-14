@@ -1,0 +1,51 @@
+<div class="row">
+	<div class="col-lg-12">
+		<div class="ibox float-e-margins">
+			<div class="ibox-content">
+				<h2>Grafico por categoria</h2>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								Filtro por instituicao
+							</div>
+							<div class="panel-body">
+								<div class="feed-element">
+									<% Instituicao.order(:nome).each do |instituicao| %>
+										<label class=""> 
+											<input name="instituicao_<%=instituicao.id%>" type="checkbox" class="i-checks" data-horario="true" checked>
+											<%= instituicao.nome %>
+										</label>
+									<% end %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12">
+						<canvas id="barChart2" height="140"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+   var barData = {
+       labels: <%= raw @labels %>,
+       datasets: <%= raw @dados.to_json %>
+   };
+   var barOptions = {
+       scaleBeginAtZero: true,
+       scaleShowGridLines: true,
+       scaleGridLineColor: "rgba(0,0,0,.05)",
+       scaleGridLineWidth: 1,
+       barShowStroke: true,
+       barStrokeWidth: 2,
+       barValueSpacing: 5,
+       barDatasetSpacing: 1,
+       responsive: true
+   }
+   var ctx = document.getElementById("barChart2").getContext("2d");
+   var myNewChart = new Chart(ctx).StackedBar(barData, barOptions);
+</script>

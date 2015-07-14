@@ -64,4 +64,12 @@ class RaroUtil
   def self.somente_numero(numero)
     "#{numero}".gsub(/\D/,"")
   end
+  
+  def self.calcula_distancia(origem,destino)
+    if origem.compact.present? && destino.compact.present?
+      Geocoder::Calculations.distance_between(origem, destino)
+    else
+      nil
+    end
+  end
 end

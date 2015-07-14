@@ -11,4 +11,5 @@ class DispositivoCrud < RaroCrud
   campo_tabela :gcm,  label: "Gcm"
 
   campo_busca :numero_busca,  label: "Quantidade de buscas"
+  campo_busca :quero_ser_voluntario,  label: "Quero ser um voluntário?"
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711175841) do
+ActiveRecord::Schema.define(version: 20150714211052) do
 
   create_table "buscas", force: :cascade do |t|
     t.string   "palavra",        limit: 255
@@ -20,7 +20,12 @@ ActiveRecord::Schema.define(version: 20150711175841) do
     t.datetime "primeira_busca"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.float    "longitude",      limit: 24
+    t.float    "latitude",       limit: 24
+    t.integer  "categoria_id",   limit: 4
   end
+
+  add_index "buscas", ["categoria_id"], name: "index_buscas_on_categoria_id", using: :btree
 
   create_table "categorias", force: :cascade do |t|
     t.string   "descricao",  limit: 255
@@ -63,10 +68,11 @@ ActiveRecord::Schema.define(version: 20150711175841) do
   add_index "contatos", ["instituicao_id"], name: "index_contatos_on_instituicao_id", using: :btree
 
   create_table "dispositivos", force: :cascade do |t|
-    t.string   "gcm",          limit: 255
-    t.integer  "numero_busca", limit: 4,   default: 0
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "gcm",                  limit: 255
+    t.integer  "numero_busca",         limit: 4
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "quero_ser_voluntario", limit: 1
   end
 
   create_table "enderecos", force: :cascade do |t|

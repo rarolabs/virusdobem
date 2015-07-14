@@ -25,7 +25,14 @@ Rails.application.routes.draw do
       end
     end
     resources :instituicoes, only: [:index, :show] do
-      get 'busca'
+      collection do
+        post 'busca'
+      end
+    end
+    resources :dispositvos, only: [:create] do
+      member do
+        post 'quero_ser_voluntario'
+      end
     end
   end
 end
