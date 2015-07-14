@@ -5,11 +5,8 @@
 		</div>
 		<div class="ibox-content">
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-12">
 				  <div id="map" style='height: 400px;'></div>
-				</div>
-				<div class="col-md-3">
-					<%= render "filtros" %>
 				</div>
 			</div>
 			<div class="row">
@@ -24,14 +21,16 @@
 							<% end %>
 							<div class="widget <%= instituicao.desativado? ? 'red-bg' : 'navy-bg'%> no-padding">
 								<div class="p-m">
-									<h3 class="font-bold no-margins">
-										<%= instituicao.nome %>
-									</h3>
+									<%= link_to "/crud/instituicao/#{instituicao.id}" do %>
+										<h3 class="font-bold no-margins" style="color: white;">
+											<%= instituicao.nome %>
+										</h3>
+									<% end %>
 									<div>
 										<div class="team-members">
 											<%= instituicao.descricao %>
 										</div>
-										<% instituicao.categorias.each do |categoria| %>
+										<% instituicao.categorias.limit(4).each do |categoria| %>
 											<div class="ibox-content">
 												<span style="color:#555">
 													<%= categoria.descricao_completa %>

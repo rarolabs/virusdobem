@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714211052) do
+ActiveRecord::Schema.define(version: 20150714212051) do
 
   create_table "buscas", force: :cascade do |t|
     t.string   "palavra",        limit: 255
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20150714211052) do
     t.string   "texto",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.boolean  "enviada",    limit: 1
   end
 
   create_table "papeis", force: :cascade do |t|
