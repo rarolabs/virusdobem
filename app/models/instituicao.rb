@@ -1,11 +1,13 @@
 class Instituicao < ActiveRecord::Base
-  belongs_to :tipo_instituicao
+  has_and_belongs_to_many :tipo_instituicao
   belongs_to :endereco, dependent: :destroy
   has_many :contatos, dependent: :destroy
   has_and_belongs_to_many :categorias
-  validates_presence_of :nome, :descricao
+  validates_presence_of :nome, :descricao, :color
+  validates_uniqueness_of :color
   
   accepts_nested_attributes_for :endereco, :contatos, :allow_destroy => true
+  # mount_uploader :logo, FileUploader
   
   include ActiveRecord::Transitions
   state_machine auto_scopes: true, initial: :ativo do

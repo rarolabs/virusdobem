@@ -32,8 +32,11 @@
 //= require jasny/jasny-bootstrap.min.js
 //= require fullcalendar/fullcalendar.min.js
 //= require chosen/chosen.jquery.js
+//= require colorpicker/bootstrap-colorpicker.min.js
 //= require summernote
+//= require jqcloud
 //= require chartjs/Chart.min.js
+//= require chartjs/Chart.StackedBar.js
 //= require jsKnob/jquery.knob.js
 //= require raro_crud.js
 //= require templus_models.js

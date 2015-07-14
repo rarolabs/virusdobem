@@ -1,0 +1,3 @@
+class CategoriaParent < Categoria
+  
+end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  palavra: MyString
+  quantidade: 1
+  ultima_busca: 2015-07-11 13:49:59
+  primeira_busca: 2015-07-11 13:49:59
+
+two:
+  palavra: MyString
+  quantidade: 1
+  ultima_busca: 2015-07-11 13:49:59
+  primeira_busca: 2015-07-11 13:49:59

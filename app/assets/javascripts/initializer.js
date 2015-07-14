@@ -21,6 +21,8 @@ function atualiza_campos_crud(){
 		radioClass: 'iradio_square-green'
 	});
 	
+	 $('.colorpicker').colorpicker();
+	
 	$('.raro_date_range').daterangepicker({
 		format: 'DD/MM/YYYY',
 		ranges: {

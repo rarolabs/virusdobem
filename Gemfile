@@ -59,7 +59,7 @@ gem 'wiselinks'
 gem 'sidekiq'
 
 #rarocrud
-gem 'templus_models', "1.2.4"
+gem 'templus_models', "1.3.0"
 gem 'carrierwave'
 gem 'rmagick'
 gem 'summernote-rails'
@@ -83,3 +83,6 @@ gem 'rabl'
 
 #Maquina de estado
 gem "transitions", :require => ["transitions", "active_record/transitions"]
+
+#Cloud Word
+gem "jqcloud-rails"

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150705115924) do
+ActiveRecord::Schema.define(version: 20150711175841) do
+
+  create_table "buscas", force: :cascade do |t|
+    t.string   "palavra",        limit: 255
+    t.integer  "quantidade",     limit: 4
+    t.datetime "ultima_busca"
+    t.datetime "primeira_busca"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "categorias", force: :cascade do |t|
     t.string   "descricao",  limit: 255
@@ -19,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150705115924) do
     t.string   "type",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "color",      limit: 255
   end
 
   add_index "categorias", ["parent_id"], name: "index_categorias_on_parent_id", using: :btree
@@ -85,22 +95,42 @@ ActiveRecord::Schema.define(version: 20150705115924) do
   end
 
   create_table "instituicoes", force: :cascade do |t|
-    t.string   "nome",                limit: 255
-    t.text     "descricao",           limit: 65535
-    t.integer  "tipo_instituicao_id", limit: 4
-    t.integer  "endereco_id",         limit: 4
-    t.string   "site",                limit: 255
-    t.string   "telefone",            limit: 255
-    t.string   "email",               limit: 255
-    t.string   "state",               limit: 255
-    t.boolean  "hub",                 limit: 1
-    t.boolean  "virus",               limit: 1
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.string   "nome",                        limit: 255
+    t.text     "descricao",                   limit: 65535
+    t.integer  "endereco_id",                 limit: 4
+    t.string   "site",                        limit: 255
+    t.string   "telefone",                    limit: 255
+    t.string   "email",                       limit: 255
+    t.string   "state",                       limit: 255
+    t.boolean  "hub",                         limit: 1
+    t.boolean  "virus",                       limit: 1
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.string   "logo",                        limit: 255
+    t.string   "disponibilidade_recebimento", limit: 255
+    t.boolean  "todas_categorias",            limit: 1
+    t.string   "color",                       limit: 255
   end
 
   add_index "instituicoes", ["endereco_id"], name: "index_instituicoes_on_endereco_id", using: :btree
-  add_index "instituicoes", ["tipo_instituicao_id"], name: "index_instituicoes_on_tipo_instituicao_id", using: :btree
+
+  create_table "instituicoes_tipo_instituicoes", id: false, force: :cascade do |t|
+    t.integer "instituicao_id",      limit: 4
+    t.integer "tipo_instituicao_id", limit: 4
+  end
+
+  add_index "instituicoes_tipo_instituicoes", ["instituicao_id"], name: "index_instituicoes_tipo_instituicoes_on_instituicao_id", using: :btree
+  add_index "instituicoes_tipo_instituicoes", ["tipo_instituicao_id"], name: "index_instituicoes_tipo_instituicoes_on_tipo_instituicao_id", using: :btree
+
+  create_table "intencao_doacoes", force: :cascade do |t|
+    t.integer  "categoria_id",   limit: 4
+    t.integer  "instituicao_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "intencao_doacoes", ["categoria_id"], name: "index_intencao_doacoes_on_categoria_id", using: :btree
+  add_index "intencao_doacoes", ["instituicao_id"], name: "index_intencao_doacoes_on_instituicao_id", using: :btree
 
   create_table "notificacoes", force: :cascade do |t|
     t.string   "texto",      limit: 255
@@ -167,5 +197,6 @@ ActiveRecord::Schema.define(version: 20150705115924) do
   add_foreign_key "enderecos", "cidades"
   add_foreign_key "enderecos", "usuarios"
   add_foreign_key "instituicoes", "enderecos"
-  add_foreign_key "instituicoes", "tipo_instituicoes"
+  add_foreign_key "intencao_doacoes", "categorias"
+  add_foreign_key "intencao_doacoes", "instituicoes"
 end

@@ -1,2 +1,147 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="col-lg-3">
+			<div class="widget style1">
+				<div class="row">
+					<div class="col-xs-4 text-center">
+						<i class="fa fa-trophy fa-5x"></i>
+					</div>
+					<div class="col-xs-8 text-right">
+						<span> Usuários </span>
+						<h2 class="font-bold"><%= @quantidade_usuarios %></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<%= link_to "/crud/instituicao" do %>
+				<div class="widget style1 lazur-bg">
+					<div class="row">
+						<div class="col-xs-12 text-right">
+							<span> Total de Instituições</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-trophy fa-3x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<h2 class="font-bold"><%= @quantidade_instituicoes %></h2>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-lg-3">
+			<%= link_to "/crud/categoria_parent" do %>
+				<div class="widget style1 yellow-bg">
+					<div class="row">
+						<div class="col-xs-12 text-right">
+							<span> Total de Categorias</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-trophy fa-3x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<h2 class="font-bold"><%= @quantidade_categorias %></h2>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-lg-3">
+			<%= link_to "/crud/subcategoria" do %>
+				<div class="widget style1 red-bg">
+					<div class="row">
+						<div class="col-xs-12 text-right">
+							<span> Total de Subcategorias</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-trophy fa-3x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<h2 class="font-bold"><%= @quantidade_subcategorias %></h2>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="ibox float-e-margins">
+			<div class="ibox-content">
+				<h2><%= @quantidade_buscas %> Palavras Buscadas</h2>
+				<div class="row">
+					<div class="col-lg-12">
+						<div id="cloud_word" style="height: 400px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="ibox float-e-margins">
+			<div class="ibox-content">
+				<h2>Grafico</h2>
+				<div class="row">
+					<div class="col-xs-8">
+						<canvas id="barChart" height="140"></canvas>
+					</div>
+					<div class="col-xs-4">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								Horário
+							</div>
+							<div class="panel-body">
+								<p>Caso deseja mostrar as equipe que não estão trabalhando nesse horário</p>
+								<div class="feed-element">
+									<label class=""> 
+										<div class="icheckbox_square-green" style="position: relative;">
+											<input name="todos_horario" type="checkbox" class="i-checks" style="position: absolute; opacity: 0;" data-horario="true">
+										</div> 
+										Todos os horários
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var word_array = <%= raw @palavras.to_json %>;
+	$(function() {
+		$("#cloud_word").jQCloud(word_array);
+	});
+	
+   var barData = {
+       labels: <%= raw @labels %>,
+		 datasets: <%= raw @dados.to_json %>
+   };
+
+   var barOptions = {
+       scaleBeginAtZero: true,
+       scaleShowGridLines: true,
+       scaleGridLineColor: "rgba(0,0,0,.05)",
+       scaleGridLineWidth: 1,
+       barShowStroke: true,
+       barStrokeWidth: 2,
+       barValueSpacing: 5,
+       barDatasetSpacing: 1,
+       responsive: true
+   }
+
+   var ctx = document.getElementById("barChart").getContext("2d");
+   var myNewChart = new Chart(ctx).StackedBar(barData, barOptions);
+</script>

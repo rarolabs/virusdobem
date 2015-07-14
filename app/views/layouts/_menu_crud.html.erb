@@ -1,6 +1,6 @@
 <%= menu_helper(Dashboard, 'home', 'index', root_path, 'Dashboard', 'fa fa-th-large', true) %>
-<%= menu_parent([Categoria,Subcategoria,TipoInstituicao,Instituicao], lista_menus_cadastros, "Cadastros", 'fa fa-book', true) do %>
-	<%= menu_crud_helper(CategoriaCrud.title, Categoria) %>
+<%= menu_parent([CategoriaParent,Subcategoria,TipoInstituicao,Instituicao], lista_menus_cadastros, "Cadastros", 'fa fa-book', true) do %>
+	<%= menu_crud_helper(CategoriaParentCrud.title, CategoriaParent) %>
 	<%= menu_crud_helper(SubcategoriaCrud.title, Subcategoria) %>
 	<%= menu_crud_helper(TipoInstituicaoCrud.title, TipoInstituicao) %>
 	<%= menu_crud_helper(InstituicaoCrud.title, Instituicao) %>
