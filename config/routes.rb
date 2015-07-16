@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       end
     end
     resources :dispositvos, only: [:create] do
-      member do
+      collection do
         post 'quero_ser_voluntario'
       end
     end

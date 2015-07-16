@@ -10,7 +10,7 @@ class Api::InstituicoesController < ApplicationController
   def show
     @instituicao = Instituicao.find(params[:id])
   end
-  
+
   def busca
     dispositivo = Dispositivo.find_by(gcm: params[:gcm])
     if dispositivo.present?
