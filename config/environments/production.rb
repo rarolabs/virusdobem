@@ -76,4 +76,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  Rails.configuration.mobile_api_key = ""
+  config.action_mailer.default_url_options = { :host => "104.236.244.181" } 
+  config.action_mailer.asset_host = "104.236.244.181"
+  config.action_controller.asset_host = "104.236.244.181"
 end
