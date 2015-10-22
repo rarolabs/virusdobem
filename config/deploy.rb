@@ -1,5 +1,5 @@
 set :application, "virusdobem"
-set :repository,  "git@git.rarolabs.com.br:rarolabs/frater.git"
+set :repository,  "github.com:rarolabs/virusdobem"
 set :scm, :git
 set :stages, %w(production staging)
 set :default_stage, "production"

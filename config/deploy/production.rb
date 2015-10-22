@@ -3,7 +3,7 @@ set :keep_releases, 5
 set :rails_env, 'production'
 
 set :scm, 'git'
-set :repository, 'git@git.rarolabs.com.br:rarolabs/frater.git'
+set :repository, 'github.com:rarolabs/virusdobem'
 set :branch, 'master'
 set :deploy_via, :remote_cache
 
