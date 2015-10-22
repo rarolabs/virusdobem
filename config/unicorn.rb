@@ -13,7 +13,7 @@ stderr_path "/app/virusdobem/current/log/unicorn.log"
 stdout_path "/app/virusdobem/current/log/unicorn.log"
 
 # Unicorn socket
-listen "/tmp/unicorn.frater.sock"
+listen "/tmp/unicorn.virusdobem.sock"
 
 # Number of processes
 # worker_processes 4
