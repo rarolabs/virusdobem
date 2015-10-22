@@ -17,10 +17,10 @@ listen "/tmp/unicorn.virusdobem.sock"
 
 # Number of processes
 # worker_processes 4
-worker_processes 3
+worker_processes 1
 
 # Time-out
-timeout 15
+timeout 60
 
 before_fork do |server, worker|
  if defined?(ActiveRecord::Base)
@@ -32,8 +32,8 @@ after_fork do |server, worker|
  if defined?(ActiveRecord::Base)
    config = ActiveRecord::Base.configurations[Rails.env] ||
                Rails.application.config.database_configuration[Rails.env]
-   config['reaping_frequency'] =  10 # seconds
-   config['pool'] = 10
+   config['reaping_frequency'] =  20 # seconds
+   config['pool'] = 20
    ActiveRecord::Base.establish_connection(config)
  end
 end
