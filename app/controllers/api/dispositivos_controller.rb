@@ -4,14 +4,27 @@ class Api::DispositivosController < ApplicationController
   protect_from_forgery except: []
   
   def create
-    Dispositivo.create(gcm: params[:gcm])
+    Dispositivo.find_or_create_by(gcm: params[:gcm])
     head :ok
   end
   
   def quero_ser_voluntario
     dispositivo = Dispositivo.find_by(gcm: params[:gcm])
-    dispositivo.quero_ser_voluntario = true
-    dispositivo.save
+    if dispositivo.present?
+      dispositivo.quero_ser_voluntario = true
+      dispositivo.save
+    end
+    head :ok
+  end
+  
+  def vou_doar
+    dispositivo = Dispositivo.find_by(gcm: params[:gcm])
+    if dispositivo.present?
+      dispositivo.doacoes ||= 0
+      dispositivo.doacoes += 1
+      dispositivo.save
+    end
+    head :ok
   end
 
 end

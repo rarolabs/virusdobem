@@ -31,7 +31,7 @@ class Instituicao < ActiveRecord::Base
   end
   
   def url
-    self.logo.url(:avatar)
+    self.logo.full_url
   end
 
   def tipoInstituicao

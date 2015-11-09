@@ -19,7 +19,7 @@ class InstituicaoCrud < RaroCrud
   campo_formulario :nome,  label: "Nome"
   campo_formulario :logo,  label: "Logo"
   campo_formulario :descricao,  label: "Descrição"
-  campo_formulario :tipo_instituicao,  label: "Tipo instituição", input_html: {"data-placeholder" => "Escolha os tipos...", class: "chosen"}, collection: TipoInstituicao.order(:descricao)
+  campo_formulario :tipo_instituicao,  label: "Tipo instituição", input_html: {"data-placeholder" => "Escolha os tipos...", class: "chosen"}, collection_if: Proc.new{TipoInstituicao.order(:descricao)}
   campo_formulario :categorias, label: "Categoria/Subcategoria", input_html: {"data-placeholder" => "Escolha as categorias/subcategorias...", class: "chosen"}, label_method: :descricao_completa, collection: Categoria.order(:descricao)
   campo_formulario :hub,  label: "Hub de logística", input_html: {class: "i-checks"}
   campo_formulario :todas_categorias,  label: "Recebe todas as categorias", input_html: {class: "i-checks"}

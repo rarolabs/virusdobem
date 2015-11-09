@@ -11,7 +11,7 @@ class SubcategoriaCrud < RaroCrud
 
   campo_formulario :color,  label: "Cor", input_html: {class: "colorpicker"}
   campo_formulario :descricao,  label: "Descrição"
-  campo_formulario :parent,  label: "Categoria", collection: CategoriaParent.order(:descricao)
+  campo_formulario :parent,  label: "Categoria", collection_if: Proc.new{CategoriaParent.order(:descricao)}
   campo_formulario :instituicoes,  label: "Instituições", input_html: {"data-placeholder" => "Escolha as instituções...", class: "chosen"}
   
   campo_visualizacao :color,  label: "Cor", input_html: {class: "colorpicker"}

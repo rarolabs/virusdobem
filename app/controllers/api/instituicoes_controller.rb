@@ -17,6 +17,7 @@ class Api::InstituicoesController < ApplicationController
       dispositivo.numero_busca += 1
       dispositivo.save
     end
+    params[:palavra] = params[:palavra].to_s.strip.downcase.singularize
     @busca = Busca.create(params_busca)
     @instituicoes = []
     Instituicao.por_categoria(@busca.descricao_categoria).each do |inst|

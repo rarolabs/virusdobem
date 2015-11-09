@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :dispositvos, only: [:create] do
       collection do
         post 'quero_ser_voluntario'
+        post 'vou_doar'
       end
     end
   end

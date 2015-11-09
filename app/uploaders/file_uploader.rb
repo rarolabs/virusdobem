@@ -6,6 +6,10 @@ class FileUploader < CarrierWave::Uploader::Base
   def store_dir
     "system/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+  
+  def full_url
+    "#{Rails.configuration.action_controller.asset_host}#{url}"
+  end
 
   def extension_white_list
     %w(jpg png)
