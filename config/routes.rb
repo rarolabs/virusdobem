@@ -29,7 +29,7 @@ Rails.application.routes.draw do
         post 'busca'
       end
     end
-    resources :dispositvos, only: [:create] do
+    resources :dispositivos, only: [:create] do
       collection do
         post 'quero_ser_voluntario'
         post 'vou_doar'

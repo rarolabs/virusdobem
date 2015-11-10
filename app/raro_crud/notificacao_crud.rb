@@ -11,8 +11,10 @@ class NotificacaoCrud < RaroCrud
   sem_exclusao
   
   campo_tabela :created_at,  label: "Enviado em", data_format: "%d/%m/%Y às %H:%M"
+  campo_tabela :nome,  label: "Nome"
   campo_tabela :texto,  label: "Texto"
   
+  campo_formulario :nome,  label: "Nome"
   campo_formulario :texto,  label: "Texto"
   
   campo_busca :created_at,  label: "Enviado em"

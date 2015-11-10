@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107144858) do
+ActiveRecord::Schema.define(version: 20151110111638) do
 
   create_table "buscas", force: :cascade do |t|
     t.string   "palavra",        limit: 255
@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20151107144858) do
 
   create_table "dispositivos", force: :cascade do |t|
     t.string   "gcm",                  limit: 255
-    t.integer  "numero_busca",         limit: 4
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "numero_busca",         limit: 4,   default: 0
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.boolean  "quero_ser_voluntario", limit: 1
     t.integer  "doacoes",              limit: 4
   end
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 20151107144858) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.boolean  "enviada",    limit: 1
+    t.string   "nome",       limit: 255
   end
 
   create_table "papeis", force: :cascade do |t|
