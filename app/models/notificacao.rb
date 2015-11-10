@@ -1,5 +1,7 @@
 class Notificacao < ActiveRecord::Base
   
+  validates_presence_of :texto, :nome
+  
   def to_s
     "#{id}"
   end
