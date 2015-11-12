@@ -5,9 +5,9 @@ class HomeController < ApplicationController
     @quantidade_categorias = Categoria.count
     @quantidade_subcategorias = Subcategoria.count
     @palavras = []
-    buscas = Busca.all
-    buscas.each do |busca|
-      @palavras << {text: busca.palavra, weight: busca.quantidade, html: {title: "Quantidade: #{busca.quantidade}, Primeira busca: #{RaroUtil.formata_data(busca.primeira_busca)}, Última busca: #{RaroUtil.formata_data(busca.ultima_busca)}"}}
+    buscas = Busca.group(:palavra).pluck(:palavra, "count(*)")
+    buscas.each do |palavra, quantidade|
+      @palavras << {text: palavra, weight: quantidade, html: {title: "Quantidade: #{quantidade}"}}
     end
     @quantidade_buscas = buscas.count
     @labels = []

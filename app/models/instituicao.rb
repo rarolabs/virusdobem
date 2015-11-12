@@ -7,8 +7,6 @@ class Instituicao < ActiveRecord::Base
   validates_uniqueness_of :color
   attr_accessor :distancia
   
-  scope :por_categoria, -> (descricao){joins(:categorias).where("categorias.descricao like '%#{descricao}%'")}
-  
   accepts_nested_attributes_for :endereco, :contatos, :allow_destroy => true
   mount_uploader :logo, FileUploader
   
@@ -26,6 +24,11 @@ class Instituicao < ActiveRecord::Base
     end
   end
   
+  def self.por_categoria(descricao)
+    ids = Instituicao.ativo.joins(:categorias).where("categorias.descricao like '%#{descricao}%'").pluck(:id)
+    Instituicao.ativo.where("instituicoes.todas_categorias = ? or instituicoes.id in (?)", true, ids)
+  end
+
   def to_s
     nome
   end

@@ -2,7 +2,7 @@ class Templus
   @@nome_aplicacao = "Instituto Vírus do Bem"
   @@nome_empresa = "Instituto Vírus do Bem"
   @@logo = 'virusdobem.png'
-  @@logo_menor = 'virusdobem_menor.png'
+  @@logo_menor = 'virusdobem.png'
   @@logo_rodape = 'raro_azul.png'
   @@logo_landpage = 'virusdobem_landpage.png'
   @@favicon = 'favicon.ico'

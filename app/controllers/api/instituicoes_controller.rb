@@ -21,11 +21,12 @@ class Api::InstituicoesController < ApplicationController
     @busca = Busca.create(params_busca)
     @instituicoes = []
     Instituicao.por_categoria(@busca.descricao_categoria).each do |inst|
-      inst.distancia = RaroUtil.calcula_distancia(@busca.localizacao, inst.localizacao).to_i
+      inst.distancia = RaroUtil.calcula_distancia(@busca.localizacao, inst.localizacao).round(2)
       @instituicoes << inst
     end
-    @instituicoes.sort{|a,b| a.distancia <=> b.distancia}.sample(10)
-    render :index
+    respond_to do |format|
+      format.json  {render json: @instituicoes.sort{|a,b| a.distancia.to_f <=> b.distancia.to_f}.take(10).to_json(methods: :distancia)}
+    end
   end
   
   private
