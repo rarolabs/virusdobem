@@ -38,6 +38,7 @@
 //= require chartjs/Chart.min.js
 //= require chartjs/Chart.StackedBar.js
 //= require jsKnob/jquery.knob.js
+//= require jquery.mask/jquery.mask.js
 //= require raro_crud.js
 //= require templus_models.js
 //= require mensagens.js

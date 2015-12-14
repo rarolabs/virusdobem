@@ -80,5 +80,5 @@ Rails.application.configure do
   Rails.configuration.mobile_api_key = "AIzaSyDrhyjQiiXSlt9iyRIX4zaSchI_ITBAYYM"
   config.action_mailer.default_url_options = { :host => "http://sistema.virusdobem.com.br" } 
   config.action_mailer.asset_host = "http://sistema.virusdobem.com.br"
-  config.action_controller.asset_host = "http://sistema.virusdobem.com.br"
+  config.action_controller.asset_host = "http://104.236.244.181"
 end

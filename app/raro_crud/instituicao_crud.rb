@@ -24,15 +24,15 @@ class InstituicaoCrud < RaroCrud
   campo_formulario :hub,  label: "Hub de logística", input_html: {class: "i-checks"}
   campo_formulario :todas_categorias,  label: "Recebe todas as categorias", input_html: {class: "i-checks"}
   campo_formulario :site,  label: "Site"
-  campo_formulario :telefone,  label: "Telefone", input_html: {"data-mask" => "(99) 9999-9999"}
+  campo_formulario :telefone,  label: "Telefone", input_html: {class: "mask-telefone-ddd"}
   campo_formulario :email,  label: "Email"
   campo_formulario :disponibilidade_recebimento,  label: "Disponibilidade de recebimento"
   adicionar_endereco
   grupo_formulario :contatos, [
     {campo: :nome, label: "Nome do contato"},
     {campo: :email, label: "Email do contato"},
-    {campo: :telefone, label: "Telefone do contato", input_html: {"data-mask" => "(99) 9999-9999"}},
-    {campo: :celular, label: "Celular do contato", input_html: {"data-mask" => "(99) 9999-9999"}}
+    {campo: :telefone, label: "Telefone do contato", input_html: {class: "mask-telefone-ddd"}},
+    {campo: :celular, label: "Celular do contato", input_html: {class: "mask-telefone-ddd"}}
   ]
 
   campo_visualizacao :state,  label: "Status"
