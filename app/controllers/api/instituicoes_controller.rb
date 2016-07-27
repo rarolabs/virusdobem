@@ -25,7 +25,7 @@ class Api::InstituicoesController < ApplicationController
       @instituicoes << inst
     end
     respond_to do |format|
-      format.json  {render json: @instituicoes.sort{|a,b| a.distancia.to_f <=> b.distancia.to_f}.take(10).to_json(methods: :distancia)}
+      format.json  {render json: @instituicoes.sort{|a,b| a.distancia.to_f <=> b.distancia.to_f}.take(50).to_json(methods: :distancia)}
     end
   end
   
