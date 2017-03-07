@@ -41,6 +41,13 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # gem 'spring'
+
+  #Capistrano
+  gem 'capistrano', "~> 3.7"
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
+  # gem 'rvm-capistrano',  require: false
 end
 
 
@@ -66,11 +73,6 @@ gem 'summernote-rails'
 
 # Use Unicorn as the app server
 gem 'unicorn'
-gem 'capistrano-unicorn'
-
-#Capistrano
-gem 'capistrano'
-gem 'rvm-capistrano',  require: false
 
 #Google Maps
 gem 'geocoder'
